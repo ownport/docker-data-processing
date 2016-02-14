@@ -13,6 +13,11 @@ RUN pip install \
 		avro \
 		fastavro \
 		csvkit \
-		xmlutils
+		xmlutils \
+		requests 
 
+RUN apk add --update gcc g++ snappy-dev python-dev libxml2-dev libxslt-dev && \
+	pip install python-snappy lxml && \
+	apk del gcc g++ snappy-dev python-dev libxml2-dev libxslt-dev && \
+	rm -rf /var/cache/apk/*	
 

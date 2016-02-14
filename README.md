@@ -18,4 +18,7 @@ Docker image with tools for data processing
 - avro
 - fastavro
 - csvkit
+- python-snappy
+- lxml
+- requests
 
