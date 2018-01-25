@@ -1,23 +1,21 @@
-FROM alpine:latest
+FROM ownport/alpine-miniconda:4.3.31
 
-RUN apk add --update \ 
-		bash \
-		make \
-		python \
-		py-pip \
-		curl \
-		jq && \
-	rm -rf /var/cache/apk/*
-
-RUN pip install \
-		avro \
-		fastavro \
-		csvkit \
-		xmlutils \
-		requests 
-
-RUN apk add --update gcc g++ snappy-dev python-dev libxml2-dev libxslt-dev && \
-	pip install python-snappy lxml && \
-	apk del gcc g++ snappy-dev python-dev libxml2-dev libxslt-dev && \
-	rm -rf /var/cache/apk/*	
+RUN echo "[INFO] Install additional command line tools" && \
+		apk add --no-cache \ 
+			bash \
+			make \
+			curl \
+			jq && \
+	echo "[INFO] Install conda components" && \
+		conda install -y nomkl && \
+		conda install -y pandas && \
+		conda install -y -c conda-forge \
+			python-snappy \
+			snappy \
+			protobuf \
+			ipython \
+			pyarrow \
+			fastavro \
+			csvkit \
+			lxml 
 
