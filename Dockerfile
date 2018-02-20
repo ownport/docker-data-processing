@@ -16,6 +16,8 @@ RUN echo "[INFO] Install additional command line tools" && \
 			ipython \
 			pyarrow \
 			fastavro \
+			python-avro \
 			csvkit \
-			lxml 
+			lxml \
+			psycopg2
 
