@@ -1,4 +1,4 @@
-FROM ownport/alpine-miniconda:4.3.31
+FROM ownport/miniconda:4.4.10
 
 RUN echo "[INFO] Install additional command line tools" && \
 		apk add --no-cache \ 
@@ -6,6 +6,8 @@ RUN echo "[INFO] Install additional command line tools" && \
 			make \
 			curl \
 			jq && \
+	echo "[INFO] Setup conda env" && \
+		source /etc/profile.d/conda.sh && \ 
 	echo "[INFO] Install conda components" && \
 		conda install -y nomkl && \
 		conda install -y pandas && \
@@ -19,5 +21,7 @@ RUN echo "[INFO] Install additional command line tools" && \
 			python-avro \
 			csvkit \
 			lxml \
-			psycopg2
+			psycopg2 \ 
+			bitarray && \
+	conda install -c keiserlab mmh3 
 
