@@ -1,11 +1,13 @@
-# Data processing docker image
+# Data processing docker images
 
-Docker image with tools for data processing
+Docker images with tools for data processing
 
-## Tools
+## dp-base
 
-to be described later
+The docker image with mininimal setup, based on Ubuntu 20.04
 
-## Python packages
+## dp-miniconda
 
-to be described later
+Docker image with miniconda installed
+
+
