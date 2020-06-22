@@ -1,4 +1,4 @@
-DOCKER_IMAGE_NAME ?= data-processing-base
+DOCKER_IMAGE_NAME ?= dp-base
 DOCKER_IMAGE_VERSION ?= latest
 
 .PHONY: build
