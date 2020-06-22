@@ -12,7 +12,9 @@ update() {
 cleanup() {
 
     echo "[INFO] Remove apt index" && \
-        rm -rf /var/lib/apt/lists/*
+        rm -rf \
+            /var/lib/apt/lists/* \
+            /tmp/*
 
 }
 
