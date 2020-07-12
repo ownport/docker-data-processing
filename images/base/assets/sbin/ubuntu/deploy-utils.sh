@@ -2,6 +2,8 @@
 
 set -eu
 
+export DEBIAN_FRONTEND=noninteractive
+
 update() {
 
     echo "[INFO] Update apt index" && \
@@ -16,6 +18,11 @@ cleanup() {
             /var/lib/apt/lists/* \
             /tmp/*
 
+}
+
+install() {
+
+    apt install -y --no-install-recommends $@
 }
 
 $@
